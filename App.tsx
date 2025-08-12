@@ -1,28 +1,45 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { WalletProvider } from './src/context/WalletContext';
+import AstrologerDetailScreen from './src/screen/AstrologerDetailScreen';
+import AstrologerListScreen from './src/screen/AstrologerListScreen';
+import BookingConfirmationScreen from './src/screen/BookingConfirmationScreen';
+import { enableScreens } from 'react-native-screens';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+export type RootStackParamList = {
+  AstrologerList: undefined;
+  AstrologerDetail: { astrologer: Astrologer };
+  BookingConfirmation: { astrologer: Astrologer };
+};
 
-  return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
-  );
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+export interface Astrologer {
+  id: string;
+  name: string;
+  expertise: string;
+  experience: number;
+  rate: number;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+const App = () => {
+
+    enableScreens();
+
+
+  return (
+    <WalletProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="AstrologerList" component={AstrologerListScreen} options={{ title: 'Astrologers' }} />
+          <Stack.Screen name="AstrologerDetail" component={AstrologerDetailScreen} options={{ title: 'Details' }} />
+          <Stack.Screen name="BookingConfirmation" component={BookingConfirmationScreen} options={{ title: 'Confirmed' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </WalletProvider>
+  );
+};
 
 export default App;
