@@ -1,6 +1,7 @@
 import { Astrologer } from '../../App';
 
 const astrologers: Astrologer[] = [
+  { id: '13', name: 'Abhishek Bhaliya', expertise: 'Vedic Astrology', experience: 12, rate: 50 },
   { id: '1', name: 'Pandit Ram Sharma', expertise: 'Vedic Astrology', experience: 12, rate: 50 },
   { id: '2', name: 'Jyotish Priya', expertise: 'Palm Reading', experience: 8, rate: 70 },
   { id: '3', name: 'Astro Rakesh', expertise: 'Numerology', experience: 15, rate: 60 },
@@ -12,7 +13,7 @@ const astrologers: Astrologer[] = [
   { id: '9', name: 'Astro Devendra', expertise: 'Vastu Shastra', experience: 13, rate: 70 },
   { id: '10', name: 'Tarot Guru Nisha', expertise: 'Tarot & Crystal Healing', experience: 7, rate: 55 },
   { id: '11', name: 'Pandit Hari Om', expertise: 'Spiritual Healing', experience: 20, rate: 100 },
-  { id: '12', name: 'Guru Shakti Prasad', expertise: 'Planetary Remedies', experience: 16, rate: 95 }
+  { id: '12', name: 'Guru Shakti Prasad', expertise: 'Planetary Remedies', experience: 16, rate: 95 },
 ];
 
 export default astrologers;
